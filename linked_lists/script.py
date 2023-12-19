@@ -36,10 +36,15 @@ class LinkedList:
 
     def remove(self, value):
        curr = self.head_node
+       if(curr.value==value):
+          del_node = self.head_node
+          self.head_node = self.head_node.next_node
+          del del_node
        while curr:
           if curr.next_node and curr.next_node.value == value:
              del_node = curr.next_node
              curr.next_node = curr.next_node.next_node
+            #  print(curr.next_node.next_node)
              del del_node
           
           curr = curr.next_node
@@ -59,7 +64,7 @@ print("Initial Linked List:")
 linked_list.print_list()
 
 # Remove a node with a specific value (e.g., 30)
-value_to_remove = 30
+value_to_remove = 10
 linked_list.remove(value_to_remove)
 
 # Print the linked list after removing the node
